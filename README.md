@@ -26,7 +26,7 @@
 
 ## 📁 Folder Structure
 
-work4u/
+```work4u/
 │
 ├── assets/
 │   └── css/
@@ -50,6 +50,7 @@ work4u/
 ├── login.html                # Login Page with Animated Welcome
 └── README.md                 # Project Documentation
 
+```
 ## 🛠️ Tech Stack
 
 - **HTML5**
