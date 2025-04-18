@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Personal Dashboard</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="../assets/css/dashboard.css">
+</head>
+<body>
+
+  
+  <nav class="header">
+    <div class="logo">WORK4U</div>
+    <nav>
+        <a href="../auth/home.html">Home</a>
+        <a href="#">About Us</a>
+        <a href="#">Contact</a>
+    </nav>
+    <div class="pro_icon">
+      <a href="../index.html" id="log_out" > Log out</a>
+  </div>
+</nav>
+
+ 
+  <div class="page-title"> <h1>Personal Dashboard</h1></div>
+
+  
+  <div class="dashboard">
+
+    
+    <div class="card">
+      <h2>
+        Personal Details
+      </h2>
+      <div class="profile">
+        <img src="https://i.pravatar.cc/100?img=3" alt="User Avatar">
+        <div>
+          <strong id="name" style="font-size: 18px;">John Doe</strong>
+        </div>
+      </div>
+      <div class="info">
+        <span id="userEmail">johndoe@example.com</span>
+<br>
+📞 <span id="userPhone">+1 234 567 890</span>
+      </div>
+    </div>
+
+   
+    <div class="card">
+      <h2>Order History</h2>
+      <table id="orderHistory">
+        <thead>
+          <tr >
+            <th id="service">Service</th>
+            <th id="date">Date</th>
+            <th id="time">Time Slot</th>
+            <th id="pay">Payment</th>
+          </tr>
+        </thead>
+        <tbody id="orderHistoryBody">
+         
+        </tbody>
+      </table>
+      <p id="noOrdersMsg">No orders yet.</p>
+    </div>
+  </div>
+
+  <script>
+    
+    const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+
+    if (currentUser) {
+      
+      document.getElementById('userEmail').textContent = currentUser.email;
+      document.getElementById('userPhone').textContent = currentUser.phone;
+      const fullname = `${currentUser.fname} ${currentUser.lname}`;
+      document.getElementById('name').textContent = fullname;
+
+      
+      const allOrders = JSON.parse(localStorage.getItem('orders')) || [];
+      const userOrders = allOrders.filter(order => order.email === currentUser.email);
+
+      const orderHistoryBody = document.getElementById('orderHistoryBody');
+      const noOrdersMsg = document.getElementById('noOrdersMsg');
+
+      if (userOrders.length > 0) {
+        noOrdersMsg.style.display = 'none'; 
+
+        
+        userOrders.forEach(order => {
+  const row = document.createElement('tr');
+  row.innerHTML = `
+    <td>${order.service}</td>
+    <td>${order.date}</td>
+    <td>${order.slot}</td> <!-- Display time slot or 'N/A' if not available -->
+    <td>${order.payment}</td>
+  `;
+  orderHistoryBody.appendChild(row);
+});
+      } else {
+        noOrdersMsg.style.display = 'block'; 
+      }
+    }
+    
+  </script>
+
+</body>
+</html>

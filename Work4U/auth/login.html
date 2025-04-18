@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login</title>
+  <link rel="stylesheet" href="../assets/css/landr.css" />
+</head>
+<body>
+
+  <div class="main-container">
+    <div class="left-content">
+      <h1 class="animated-title">
+        Welcome to 
+        <span class="work4u">
+          <span>W</span><span>O</span><span>R</span><span>K</span><span>4</span><span>U</span>
+        </span>
+      </h1>
+      <p>Book a service</p>
+    </div>
+
+    <div class="form-container">
+      <form class="form-box" id="loginForm">
+        <h2>Login to Your Account</h2>
+
+        <label for="email">Email ID</label>
+        <input type="email" id="email" placeholder="you@example.com" required />
+
+        <label for="password">Password</label>
+        <input type="password" id="password" placeholder="Enter your password" required />
+
+        <button type="submit">Login</button>
+
+        <p class="form-footer">
+          Don't have an account? <a href="register.html">Register here</a>
+        </p>
+      </form>
+    </div>
+  </div>
+
+  <script type="module" src="../database/login.js"></script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Booking Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/booking.css" />
+  </head>
+  <body>
+    <header>
+        <div class="logo">WORK4U</div>
+        <nav>
+            <a href="../auth/home.html">Home</a>
+            <a href="#">About Us</a>
+            <a href="#">Contact</a>
+        </nav>
+        <div class="pro_icon">
+          <a href="../dashboard/customer.html"><i class="fa-solid fa-user"></i></a>
+      </div>
+    </header>
+
+    <div class="booking-container">
+      <div class="booking-card">
+        <h2>Book a Labour</h2>
+
+        <label for="phone">Phone Number</label>
+        <input type="tel" id="phone" placeholder="Enter your phone number" />
+
+        <label for="address">Address</label>
+        <textarea
+          class="address"
+          rows="3"
+          placeholder="Enter your address"
+        ></textarea>
+
+        <label for="date">Date</label>
+        <input type="date" id="date" />
+
+        <label for="slot">Time Slot</label>
+        <input type="text" id="slot" placeholder="e.g. 10:00 - 13:00" />
+
+        <label for="instructions">Special Instructions</label>
+        <textarea
+          class="instructions"
+          rows="2"
+          placeholder="Any extra info..."
+        ></textarea>
+
+        <p class="total-amount">Total: ₹<span id="totalAmount">0</span></p>
+
+        <button class="pay-btn" onclick="validateAndSubmit()">Book Now</button>
+      </div>
+    </div>
+
+    <script src="../assets/js/booking.js"></script>
+  </body>
+</html>
